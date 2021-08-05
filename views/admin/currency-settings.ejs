@@ -1,0 +1,75 @@
+
+<%- include("partials/header.ejs") %>
+
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1 class="m-0">Currency Settings</h1>
+      </div><!-- /.col -->
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item active">Currency Settings</li>
+        </ol>
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+  </div>
+</div>
+<!-- /.content-header -->
+
+<!-- Main content -->
+<section class="content">
+  <div class="container-fluid">
+    <!-- Small boxes (Stat box) -->
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card card-dark">
+          <div class="card-header">
+            <h3 class="card-title">Currency Settings</h3>
+          </div>
+        <!-- text input -->
+        <div class="card-body">
+          <div class="alert alert-success">
+            Active Currency:
+            <%if(currency_data!==null){ %>
+
+              <%= currency_data.option_value %>
+
+           <% } else{ %> <%= "--"%>
+
+           <% } %>
+          </div>
+          <form method="post" action="/admin/currency-settings" id="frm-curr-settings">
+            <div class="row">
+              
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label>Select Currency</label>
+                 <select class="form-control" name="dd_currency">
+                  <option value="1">Choose Currency</option>
+                  <option value="USD">USD (United States Dollar)</option>
+                  <option value="INR">INR (Indian Rupee)</option>
+                  <option value="EUR">EUR (EURO)</option>
+
+                 </select>
+                </div>
+              </div>
+            </div>
+
+            <button class="btn btn-dark" type="submit">Submit</button>
+       </div>
+          </form>
+        
+        
+      
+      </div>
+      
+    </div>
+ 
+  </div><!-- /.container-fluid -->
+</section>
+<!-- /.content -->
+
+<!-- /.content-wrapper -->
+<%- include("partials/footer.ejs") %>

@@ -1,0 +1,110 @@
+
+<%- include("partials/header.ejs") %>
+
+
+<style>
+  #frm-issue-a-book label.error{
+     color: red;
+  }
+</style>
+
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1 class="m-0">Issue a Book</h1>
+      </div><!-- /.col -->
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item active">Issue a Book</li>
+        </ol>
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+  </div>
+</div>
+<!-- /.content-header -->
+
+<!-- Main content -->
+<section class="content">
+  <div class="container-fluid">
+    <!-- Small boxes (Stat box) -->
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card card-dark">
+          <div class="card-header">
+            <h3 class="card-title">Issue a Book</h3>
+          </div>
+        <!-- text input -->
+        <div class="card-body">
+          <form method="post" action="/admin/issue-a-book" id="frm-issue-a-book">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                      <label>Select Category</label>
+                     <select class="form-control" required name="dd_category" id="dd_category">
+                      <option value="">Choose Category</option>  
+                      <% categories.forEach(function(data){ %>
+                        <option value="<%= data.id %>" > <%= data.name %> </option>
+                      <% }) %>  
+                     </select>
+                    </div>
+                  </div>
+
+                <div class="col-sm-6">
+                    <div class="form-group">
+                      <label>Select Book</label>
+                     <select class="form-control" required name="dd_book" id="dd_book">
+                      <option value="">Choose Book</option>
+                     
+                     </select>
+                    </div>
+                  </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                      <label>Select User</label>
+                     <select class="form-control" required name="dd_user">
+                      <option value="">Choose User</option> 
+                      <% users.forEach(function(data){ %>
+                        <option value="<%= data.id %>" > <%= data.name %> </option>
+                      <% }) %>
+                     </select>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label>How many days we want a issue ?</label>
+                     <select class="form-control" required name="dd_days">
+                      <option value="">Choose Days</option>  
+                      <% days.forEach(function(data){ %>
+                        <option value="<%= data.total_days %>" > <%= data.total_days %> Days </option>
+                      <% }) %>
+                        
+                     </select>
+                    </div>
+                  </div>
+              </div>
+
+              
+
+           
+
+            <button class="btn btn-dark" type="submit">Submit</button>
+       </div>
+          </form>
+        
+        
+      
+      </div>
+      
+    </div>
+ 
+  </div><!-- /.container-fluid -->
+</section>
+<!-- /.content -->
+
+<!-- /.content-wrapper -->
+<%- include("partials/footer.ejs") %>

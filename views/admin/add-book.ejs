@@ -1,0 +1,133 @@
+
+<%- include("partials/header.ejs") %>
+
+<style>
+  #frm-add-book label.error{
+     color: red;
+  }
+</style>
+
+
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1 class="m-0">Add Book</h1>
+      </div><!-- /.col -->
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item active">Add Category</li>
+        </ol>
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+  </div>
+</div>
+<!-- /.content-header -->
+
+<!-- Main content -->
+<section class="content">
+  <div class="container-fluid">
+    <!-- Small boxes (Stat box) -->
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card card-dark">
+          <div class="card-header">
+            <h3 class="card-title">Add Book</h3>
+          </div>
+        <!-- text input --> 
+        <div class="card-body">
+          <form method="post" action="/admin/add-book" id="frm-add-book" enctype="multipart/form-data">
+            <div class="row">
+              <div class="col-sm-6">
+                <!-- text input -->
+                <div class="form-group">
+                  <label>Name</label>
+                  <input type="text" required class="form-control" placeholder="Enter Name" name="name">
+                </div>
+              
+              
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label>Select Category</label>
+                 <select class="form-control" required name="dd_category">
+                  <option value="1">Choose Category</option>
+                  <% categories.forEach(function(data){ %>
+                    <option value="<%= data.id %>" > <%= data.name %> </option>
+                  <% }) %>
+                 </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6">
+                  <!-- text input -->
+                  <div class="form-group">
+                    <label>Description</label>
+                    <textarea class="form-control" placeholder="Description" name="description"></textarea>
+                  </div>
+                
+                
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label>Amount
+                      <%if(currency_data!==null){ %>
+
+                        (<%= currency_data.option_value %>)
+          
+                     <% } else{ %> 
+                     <% } %>
+                    </label>
+                    <input type="number" min="1" class="form-control" placeholder="Enter Amount" name="amount">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                  <!-- text input -->
+                  <div class="form-group">
+                    <label>Cover Image</label>
+                    <input class="form-control" required type="file" name="cover_image">
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label>Author</label>
+                    <input type="text" required class="form-control" placeholder="Enter Author name" name="author">
+                  </div>
+                </div>
+              </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                      <label>Select Status</label>
+                     <select class="form-control" name="status">
+                      <option value="1">Active</option>
+                      <option value="0">Inactive</option>
+    
+                     </select>
+                    </div>
+                  </div>
+            </div>
+
+           
+
+            <button class="btn btn-dark" type="submit">Submit</button>
+       </div>
+          </form>
+        
+        
+      
+      </div>
+      
+    </div>
+ 
+  </div><!-- /.container-fluid -->
+</section>
+<!-- /.content -->
+
+<!-- /.content-wrapper -->
+<%- include("partials/footer.ejs") %>

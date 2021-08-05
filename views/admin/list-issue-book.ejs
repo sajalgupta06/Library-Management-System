@@ -1,0 +1,92 @@
+
+<%- include("partials/header.ejs") %>
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1>List Issue Book</h1>
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item active">List Issue Book</li>
+        </ol>
+      </div>
+    </div>
+  </div><!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">List Issue Book</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              <table id="tbl-list-issue-book" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  
+                  <th>Category</th>
+                  <th>Book</th>
+                  <th>UserInfo</th>
+                  <th>Total Days</th>
+                  <th>Issue Date</th>
+                  
+                </tr>
+                </thead>
+                <tbody>
+                   
+                  <% list.forEach(function(data){ %>
+                    <tr>
+                      <td>
+                        <%= data.Category.name%>
+                      </td>
+                      <td>
+                        <%= data.Book.name%>
+                      </td>
+                      <td>
+                       Name: <%= data.User.name%><br/>
+                       Email: <%= data.User.email%> 
+                      </td>
+                      <td>
+                        <%= data.days_issued%>
+                      </td>
+                      <td>
+                        <%= data.issued_date%>
+                      </td> 
+                    </tr>
+
+                  <% }) %> 
+
+                </tbody>
+                <tfoot>
+                <tr>
+                  <th>Category</th>
+                  <th>Book</th>
+                  <th>UserInfo</th>
+                  <th>Total Days</th>
+                  <th>Issue Date</th> 
+                  
+                    
+                </tr>
+                </tfoot>
+              </table>
+            </div>
+            <!-- /.card-body -->
+          </div> 
+        </div>
+        </div>
+        </div>
+        </section>
+        
+        
+        
+        
+        <%- include("partials/footer.ejs") %>

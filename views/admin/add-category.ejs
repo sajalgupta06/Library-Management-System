@@ -1,0 +1,78 @@
+
+<%- include("partials/header.ejs") %>
+
+
+<style>
+  #frm-add-category label.error{
+     color: red;
+  }
+</style>
+
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1 class="m-0">Add Category</h1>
+      </div><!-- /.col -->
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item active">Add Category</li>
+        </ol>
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+  </div>
+</div>
+<!-- /.content-header -->
+
+<!-- Main content -->
+<section class="content">
+  <div class="container-fluid">
+    <!-- Small boxes (Stat box) -->
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card card-dark">
+          <div class="card-header">
+            <h3 class="card-title">Add Category</h3>
+          </div>
+        <!-- text input -->
+        <div class="card-body">
+          <form id='frm-add-category' name='frm-add-category' method="post" action="/admin/add-category" >
+            <div class="row">
+              <div class="col-sm-6">
+                <!-- text input -->
+                <div class="form-group">
+                  <label>Name</label>
+                  <input  type="text"  required  class="form-control" placeholder="Enter Name" name="name">
+                </div>
+              
+              
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label>Select Status</label>
+                 <select class="form-control" name="status">
+                  <option value="1">Active</option>
+                  <option value="0">Inactive</option>
+
+                 </select>
+                </div>
+              </div>
+            </div>
+
+            <button class="btn btn-dark" type="submit">Submit</button>
+       </div>
+          </form>
+        
+        
+      
+      </div>
+      
+    </div>
+ 
+  </div><!-- /.container-fluid -->
+</section>
+<!-- /.content -->
+
+<!-- /.content-wrapper -->
+<%- include("partials/footer.ejs") %>
